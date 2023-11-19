@@ -1,22 +1,24 @@
-import React from 'react'
-import { Typography, Grid } from '@mui/material'
+import React from 'react';
+import { Typography, Grid } from '@mui/material';
 
-function Header ({ image, text1, text2 }) {
+function Header({ image, text1, text2 }) {
   return (
     <Grid
       container
       direction='column'
       justifyContent='flex-start'
       alignItems='center'
-      sx={{marginTop:"40px"}}
+      sx={{ marginTop: "40px" }}
     >
       <Grid
         item
         sx={{
           borderRadius: '30px',
           background: `linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),url(${image})`,
-          width: '1766.41px',
-          height: '756px'
+          width: '100%',
+          paddingBottom: '30%',
+          position: 'relative',
+          zIndex: -1
         }}
       >
         <Typography
@@ -49,4 +51,4 @@ function Header ({ image, text1, text2 }) {
   )
 }
 
-export default Header
+export default Header;

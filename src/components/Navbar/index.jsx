@@ -258,26 +258,6 @@ function Navbar() {
               </Grid>
             </LinkContainer>
           </ListItem>
-          <ListItem>
-            <Link
-              to='/about'
-              className='link'
-              style={{
-                justifyContent: 'center',
-                color: '#000',
-                fontFamily: 'Manrope, -apple-system, Roboto, Helvetica, sans-serif',
-                fontWeight: 600,
-                fontSize: '16px',
-                lineHeight: '30px',
-                padding: '15px 30px',
-                textDecoration: 'none',
-                transition: 'background 0.3s, font-size 0.3s',
-                borderBottom: '1px solid #ccc',
-              }}
-            >
-              About
-            </Link>
-          </ListItem>
           <DrawerItems />
         </List>
       </Drawer>
