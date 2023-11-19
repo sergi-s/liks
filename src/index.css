@@ -1,0 +1,35 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap");
+body {
+  margin: 0;
+  line-height: normal;
+  font-family: var(--font-manrope);
+}
+:root {
+  /* fonts */
+  --font-montserrat: Montserrat;
+  --font-poppins: Poppins;
+  --font-manrope: Manrope;
+  --font-font-awesome-5-free: "Font Awesome 5 Free";
+
+  /* font sizes */
+  --font-size-lg: 18px;
+  --font-size-base: 16px;
+  --font-size-7xl: 26px;
+  --font-size-28xl-4: 47.4px;
+  --font-size-11xl: 30px;
+  --font-size-smi: 13px;
+
+  /* Colors */
+  --color-white: #fff;
+  --color-gray-100: rgba(255, 255, 255, 0.09);
+  --color-goldenrod: #f8b232;
+  --color-darkslateblue: #10417a;
+  --color-darkgoldenrod: #b27300;
+  --color-black: #000;
+
+  /* Border radiuses */
+  --br-xl: 20px;
+  --br-11xl: 30px;
+}

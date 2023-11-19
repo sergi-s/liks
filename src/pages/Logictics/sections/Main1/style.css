@@ -1,0 +1,4 @@
+.logiscticsback {
+    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),  url('/src/assets/Logistics/images/Main2.png');
+    background-size: cover; 
+}

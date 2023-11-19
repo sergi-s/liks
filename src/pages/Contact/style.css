@@ -1,0 +1,4 @@
+.contactBackground {
+    background: linear-gradient(141deg, #000 0%, rgba(0, 0, 0, 0.00) 50%),  url('/src/assets/ContactUs/images/main.png'), no-repeat;
+    background-size: cover; 
+}
