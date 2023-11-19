@@ -6,7 +6,7 @@ import Vector1 from '../../assets/Vector 1.svg'
 import Vector2 from '../../assets/Vector 2.svg'
 import Telephone from '../../assets/Phone_white.svg'
 import BlueArrow from '../../assets/BlueArrow.svg'
-function Footer ({ content }) {
+function Footer({ content }) {
   return (
     <Grid
       container
@@ -19,9 +19,14 @@ function Footer ({ content }) {
         sx={{
           borderRadius: '20px',
           backgroundColor: '#141414',
-          padding: '96px',
-          width: '1766.39px',
-          height: '692.83px'
+          padding: '32px',
+          width: '100%',
+          maxWidth: '1766.39px',
+          height: 'auto',
+          minHeight: '300px',
+          '@media (max-width:600px)': {
+            padding: '16px',
+          },
         }}
       >
         <Grid item container md={12} sx={{ padding: '10px' }}>
@@ -367,8 +372,10 @@ function Footer ({ content }) {
             </Grid>
           </Grid>
         </Grid>
-        <Grid item container md={12} sx={{ padding: '20px 0 20px 0' }}>
-          <Grid item sx={{ width: '504.8px' }}>
+        {/*  ************************************************ */}
+
+        <Grid item container spacing={3} md={12} sx={{ padding: '10px', width: '100%' }} flexWrap="wrap">
+          <Grid item xs={12} md={6} style={{ maxWidth: '504.8px' }}>
             <Box
               sx={{
                 justifyContent: 'center',
@@ -381,7 +388,7 @@ function Footer ({ content }) {
                 <img
                   loading='lazy'
                   src={Email}
-                  alt='image'
+                  alt='envelope'
                   style={{ width: '55px', height: '55px' }}
                 />
                 <Typography
@@ -403,7 +410,7 @@ function Footer ({ content }) {
               </Grid>
             </Box>
           </Grid>
-          <Grid item sx={{ width: '504.8px', marginLeft: '60px' }}>
+          <Grid item xs={12} md={6} style={{ maxWidth: '504.8px' }}>
             <Box
               sx={{
                 justifyContent: 'center',
@@ -438,7 +445,7 @@ function Footer ({ content }) {
               </Grid>
             </Box>
           </Grid>
-          <Grid item sx={{ marginLeft: '60px' }}>
+          <Grid item xs={12} md={6} style={{ maxWidth: '504.8px' }}>
             <Box sx={{}}>
               <Grid container sx={{ display: 'flex' }}>
                 <Grid item>
@@ -464,13 +471,13 @@ function Footer ({ content }) {
                   <img
                     loading='lazy'
                     src={Vector1}
-                    alt='image'
+                    alt='vector1'
                     style={{ width: '20.92px', height: '24.6px' }}
                   />
                   <img
                     loading='lazy'
                     src={Vector2}
-                    alt='image'
+                    alt='vector2'
                     style={{ width: '17.2px', height: '23.3px' }}
                   />
                 </Grid>
