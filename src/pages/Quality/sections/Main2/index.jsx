@@ -80,19 +80,25 @@ const Main2 = props => {
     <Grid
       container
       sx={{
-        padding: '0 153.59px 10px 153.59px'
+        padding: '0 16px',
+        '@media (min-width:600px)': {
+          padding: '0 32px',
+        },
+        '@media (min-width:960px)': {
+          padding: '0 64px',
+        },
       }}
     >
       <Grid container spacing={3} sx={{ marginTop: '30px' }}>
         {cardItems1.map(cardItem => (
-          <Grid item md={3}>
+          <Grid item key={cardItem.id} xs={12} sm={6} md={3}>
             <Card9 content={cardItem} />
           </Grid>
         ))}
       </Grid>
-      <Grid container columns={10} spacing={3} sx={{ marginTop: '60px' }}>
+      <Grid container spacing={3} sx={{ marginTop: '60px' }}>
         {cardItems2.map(cardItem => (
-          <Grid item md={2}>
+          <Grid item key={cardItem.id} xs={12} sm={6} md={2}>
             <Card9 content={cardItem} />
           </Grid>
         ))}

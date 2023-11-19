@@ -1,14 +1,7 @@
 import React from "react";
 import { Box, Typography } from "@mui/material";
 
-// import SVG from '../src/assets/svg/SVG.svg'
-// const content={
-//   shadowColor: "10px 10px 0px -2px rgba(255, 179, 34, 0.52)",
-//   image: SVG,
-//   header: 'HP/HT Rheometer',
-// }
-
-export default function Card9({content}) {
+export default function Card9({ content }) {
   return (
     <Box
       sx={{
@@ -19,8 +12,9 @@ export default function Card9({content}) {
         borderRadius: "20px",
         boxShadow: `${content.shadowColor}`,
         backgroundColor: "#f1f4f6",
-        padding: "50px",
-        height:"170px"
+        padding: "20px",
+        minHeight: "200px",
+        textAlign: "center",
       }}
     >
       <img
@@ -28,7 +22,9 @@ export default function Card9({content}) {
         src={content.image}
         alt="Rheometer"
         style={{
-          width: "95px",
+          width: "75%",
+          maxWidth: "100%",
+          marginBottom: "20px",
         }}
       />
       <Typography
@@ -40,7 +36,7 @@ export default function Card9({content}) {
           fontWeight: "600",
           fontSize: "16px",
           lineHeight: "24px",
-          marginTop: "20px"
+          marginTop: "10px",
         }}
       >
         {content.header}
