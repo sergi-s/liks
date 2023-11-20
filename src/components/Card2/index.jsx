@@ -1,7 +1,7 @@
-import React from 'react'
-import { Box, Typography } from '@mui/material'
+import React from 'react';
+import { Box, Typography } from '@mui/material';
 
-function Card2 ({content}) {
+function Card2({ content }) {
   return (
     <Box
       sx={{
@@ -10,7 +10,9 @@ function Card2 ({content}) {
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-        width: '337px',
+        width: '100%',
+        maxWidth: '337px',
+        margin: '0 auto',
         height: '216px'
       }}
     >
@@ -43,6 +45,6 @@ function Card2 ({content}) {
         {content.text}
       </Typography>
     </Box>
-  )
+  );
 }
-export default Card2
+export default Card2;

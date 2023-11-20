@@ -1,9 +1,8 @@
-import React from 'react'
-import { Typography, Button, Grid } from '@mui/material'
-import ArrowRightIcon from '@mui/icons-material/ArrowRight'
-import { createTheme, ThemeProvider } from '@mui/material/styles'
+import React from 'react';
+import { Typography, Button, Grid } from '@mui/material';
+import ArrowRightIcon from '@mui/icons-material/ArrowRight';
 
-import './Main1.css'
+import './Main1.css';
 
 const Main1 = () => {
   return (
@@ -29,7 +28,7 @@ const Main1 = () => {
       <Grid item style={{ paddingTop: 50 }}>
         <Button
           sx={{
-            width: 202.45,
+            // width: 'auto',
             height: 58,
             borderRadius: 90,
             backgroundColor: '#F8B232',
@@ -42,10 +41,10 @@ const Main1 = () => {
           <Typography
             sx={{
               fontFamily:
-                    'Manrope, -apple-system, Roboto, Helvetica, sans-serif',
+                'Manrope, -apple-system, Roboto, Helvetica, sans-serif',
               fontWeight: '600',
-              fontSize: "18px",
-              lineHeight: "18px"
+              fontSize: '18px',
+              lineHeight: '18px',
             }}
           >
             Learn More
@@ -53,7 +52,7 @@ const Main1 = () => {
         </Button>
       </Grid>
     </Grid>
-  )
-}
+  );
+};
 
-export default Main1
+export default Main1;

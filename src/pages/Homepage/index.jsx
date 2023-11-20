@@ -10,13 +10,14 @@ import Main7 from './sections/Main7';
 function index() {
   return (
     <>
-      <Main1/>
-      <Main2/>
-      <Main3/>
-      <Main4/>
-      <Main5/>
+      <Main1 />
+      <Main2 />
+      <Main3 />
+      <Main4 />
+      {/* <Main5 /> */}
       <Main6/>
-      <Main7/>
+      {/* 
+      <Main7/> */}
     </>
   )
 }
