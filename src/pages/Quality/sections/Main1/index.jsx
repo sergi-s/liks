@@ -1,5 +1,5 @@
 import React from 'react'
-import { Grid, Typography } from '@mui/material'
+import { Grid, Paper, Typography } from '@mui/material'
 import Main2Image from '../../../../assets/QHSE/images/Main2.png'
 import Main3Image from '../../../../assets/QHSE/images/Main3.png'
 
@@ -18,53 +18,27 @@ function Main2() {
         '@media (min-width: 960px)': {
           padding: '96px 96px',
         },
+        gap: '10px'
       }}
     >
-      <Grid item xs={12} md={6} sx={{ marginBottom: { xs: '40px', md: 0 } }}>
-        <img
-          src={Main2Image}
-          alt=''
-          style={{
-            width: '100%',
-            height: 'auto',
-            borderRadius: '20px',
-            maxWidth: '578px',
-            marginBottom: '20px',
-          }}
-        />
-      </Grid>
-      <Grid item xs={12} md={6} sx={{ padding: { xs: '20px', md: '70px' } }}>
-        <Typography
-          sx={{
-            textAlign: 'left',
-            fontFamily:
-              'Manrope, -apple-system, Roboto, Helvetica, sans-serif',
-            fontWeight: 700,
-            fontSize: '30px',
-            lineHeight: '30px',
-            letterSpacing: '-0.8px',
-          }}
-        >
-          Our Dedication to Quality Assurance
-        </Typography>
-        Liks maintains fully equipped testing facilities within its plants for
+      <QAGoal image={Main2Image} title={"Our Dedication to Quality Assurance"}
+        text={`Liks maintains fully equipped testing facilities within its plants for
         both Quality Assurance (QA) and Quality Control (QC) purposes. With
         state-of-the-art and reliable testing equipment, our quality systems
         guarantee that our products undergo thorough testing at each stage of
         manufacturing. We only ship products to customers when all required
-        parameters meet our stringent standards. <br />
+        parameters meet our stringent standards. \n
         To ensure traceability, all produced items are assigned unique batch
         numbers. Samples from shipped products are retained by our respective
-        labs, serving as reference points for technical support purposes.{' '}
-        <br />
+        labs, serving as reference points for technical support purposes. 
+        \n
         Our documentation processes adhere to the highest standards, aligning
         with the company's Quality Management System (QMS). This commitment
         underscores our dedication to delivering products of the utmost
-        quality to our customers.
+        quality to our customers.`} />
 
-      </Grid>
-      <Grid item xs={12} md={6} sx={{ padding: { xs: '20px', md: '70px' } }}>
-        Our Research and Development (R&D) team collaborates closely with our
+      <QAGoal image={Main3Image} isRight={true}
+        text={`Our Research and Development (R&D) team collaborates closely with our
         manufacturing units and customers to craft products that surpass
         existing offerings in the Oilfield market, ensuring cost-effectiveness
         through the use of local raw materials. The entire product lifecycle,
@@ -81,22 +55,43 @@ function Main2() {
         certification, and they are approved by major customers for their
         reliability and accuracy. This ensures that our commitment to quality
         and innovation is upheld at every stage of product development and
-        testing.
-      </Grid>
-      <Grid item xs={12} md={6}>
-        <img
-          src={Main3Image}
-          alt=''
-          style={{
-            width: '100%',
-            height: 'auto',
-            borderRadius: '20px',
-            maxWidth: '578px',
-          }}
-        />
-      </Grid>
+        testing.`} />
+
     </Grid>
   )
 }
 
 export default Main2
+
+
+const QAGoal = ({ image, title, text, isRight = false }) => {
+  const c = [
+    <Grid item xs={12} md={3}>
+      <img
+        src={image}
+        alt=""
+        style={{ width: '100%', height: 'auto', borderRadius: '20px' }}
+      />
+    </Grid>,
+
+    <Grid item xs={12} md={9}>
+      <Paper
+        style={{
+          borderRadius: '20px',
+          background: '#ECEFF3',
+          padding: '20px',
+        }}
+      >
+        {title ? <Typography variant="h5">{title}</Typography> : ''}
+        <Typography variant="body1">
+          {text}
+        </Typography>
+      </Paper>
+    </Grid>]
+  if (isRight) c.reverse()
+  return (
+    <Grid container spacing={2} sx={{ alignItems: 'inherit' }}>
+      {c.map((e) => e)}
+    </Grid>
+  );
+};

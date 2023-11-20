@@ -18,7 +18,7 @@ import Vector9 from '../../../../assets/Quality/SVG/card9.svg'
 // }
 
 const Main2 = props => {
-  const cardItems1 = [
+  const cardItems = [
     {
       id: 1,
       shadowColor: '10px 10px 0px -2px rgba(90, 165, 255, 0.53)',
@@ -42,9 +42,7 @@ const Main2 = props => {
       shadowColor: '10px 10px 0px -2px rgba(255, 179, 34, 0.52)',
       image: Vector4,
       header: 'Sieve analysis – Wet and Dry'
-    }
-  ]
-  const cardItems2 = [
+    },
     {
       id: 5,
       shadowColor: '10px 10px 0px -2px rgba(90, 165, 255, 0.53)',
@@ -90,15 +88,8 @@ const Main2 = props => {
       }}
     >
       <Grid container spacing={3} sx={{ marginTop: '30px' }}>
-        {cardItems1.map(cardItem => (
+        {cardItems.map(cardItem => (
           <Grid item key={cardItem.id} xs={12} sm={6} md={3}>
-            <Card9 content={cardItem} />
-          </Grid>
-        ))}
-      </Grid>
-      <Grid container spacing={3} sx={{ marginTop: '60px' }}>
-        {cardItems2.map(cardItem => (
-          <Grid item key={cardItem.id} xs={12} sm={6} md={2}>
             <Card9 content={cardItem} />
           </Grid>
         ))}

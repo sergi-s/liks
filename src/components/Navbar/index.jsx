@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Grid, IconButton, Drawer, List, ListItem, ListItemText } from '@mui/material';
+import { Grid, IconButton, Drawer, List, ListItem } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import { LinkContainer } from 'react-router-bootstrap';
 import { Link } from 'react-router-dom';
@@ -212,6 +212,7 @@ function Navbar() {
           right: '20px',
           backgroundColor: 'white',
           padding: '10px',
+          background: '#888484'
         }}
       >
         <MenuIcon fontSize="large" />

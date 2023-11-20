@@ -8,6 +8,7 @@ function Header({ image, text1, text2 }) {
       direction='column'
       justifyContent='flex-start'
       alignItems='center'
+      paddingX='50px'
       sx={{ marginTop: "40px" }}
     >
       <Grid
@@ -15,6 +16,7 @@ function Header({ image, text1, text2 }) {
         sx={{
           borderRadius: '30px',
           background: `linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),url(${image})`,
+          backgroundSize: 'cover',
           width: '100%',
           paddingBottom: '30%',
           position: 'relative',
