@@ -16,8 +16,7 @@ function index() {
       <Main4 />
       {/* <Main5 /> */}
       <Main6/>
-      {/* 
-      <Main7/> */}
+      <Main7/>
     </>
   )
 }

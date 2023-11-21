@@ -21,7 +21,9 @@ export default function index() {
       justifyContent="center"
       alignItems="center"
       sx={{
-        padding: '20px', // Padding adjusted for smaller screens
+        paddingX: 'auto',
+        paddingY: '2rem',
+        marginY: '1rem',
         backgroundColor: '#2B2C2F',
         display: 'flex'
       }}
@@ -31,11 +33,12 @@ export default function index() {
           sx={{
             fontFamily: 'Manrope, -apple-system, Roboto, Helvetica, sans-serif',
             fontWeight: '800',
-            fontSize: '28px', // Font size adjusted for smaller screens
-            lineHeight: '32px', // Line height adjusted for smaller screens
+            fontSize: '28px',
+            lineHeight: '32px',
             letterSpacing: '-2.2px',
             color: '#FFF',
-            textAlign: 'center'
+            textAlign: 'center',
+            paddingY: '1rem',
           }}
         >
           Our Capabilities

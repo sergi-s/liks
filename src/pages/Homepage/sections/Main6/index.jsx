@@ -1,6 +1,5 @@
 import React from 'react'
-import { Grid, Typography, Button } from '@mui/material'
-import ArrowRightIcon from '@mui/icons-material/ArrowRight'
+import { Grid, Typography } from '@mui/material'
 import CardImage1 from '../../../../assets/Homepage/images/cardImage1.png'
 import CardImage2 from '../../../../assets/Homepage/images/cardImage2.png'
 import CardImage3 from '../../../../assets/Homepage/images/cardImage3.png'
@@ -59,8 +58,10 @@ const Main5 = () => {
       container
       sx={{
         display: 'flex',
-        height: '1142.39px',
-        padding: '96px 192px 96px 192px',
+        height: '100%',
+        width: '100%',
+        paddingY: '192px',
+        paddingX: '40px',
         alignItems: 'flex-start'
       }}
     >

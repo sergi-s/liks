@@ -1,7 +1,7 @@
-import React from 'react'
-import { Typography, Button, Grid, Container } from '@mui/material'
-import ArrowRightIcon from '@mui/icons-material/ArrowRight'
-import './Main1.css'
+import React from 'react';
+import { Typography, Button, Grid, Container } from '@mui/material';
+import ArrowRightIcon from '@mui/icons-material/ArrowRight';
+import './Main1.css';
 
 const Main7 = () => {
   return (
@@ -14,10 +14,12 @@ const Main7 = () => {
         alignItems='center'
         justifyContent='center'
         sx={{
-          width: '1574.41px',
+          width: '100%',
           height: '335.39px',
           textAlign: 'center',
-          borderRadius: '20px'
+          borderRadius: '20px',
+          padding: '0 20px',
+          boxSizing: 'border-box',
         }}
       >
         <Grid item>
@@ -27,9 +29,9 @@ const Main7 = () => {
               fontFamily:
                 'Manrope, -apple-system, Roboto, Helvetica, sans-serif',
               fontWeight: '800',
-              fontSize: '50px',
-              lineHeight: '56px',
-              letterSpacing: '-1.5px'
+              fontSize: 'clamp(2rem, 4vw, 3.5rem)',
+              lineHeight: '1.2',
+              letterSpacing: '-1.5px',
             }}
           >
             We Would Love To Hear From You
@@ -41,9 +43,9 @@ const Main7 = () => {
               fontFamily:
                 'Manrope, -apple-system, Roboto, Helvetica, sans-serif',
               fontWeight: '600',
-              fontSize: '18px',
-              lineHeight: '27px',
-              letterSpacing: '-0.4px'
+              fontSize: 'clamp(1rem, 2vw, 1.5rem)',
+              lineHeight: '1.5',
+              letterSpacing: '-0.4px',
             }}
           >
             Feel free to call us or send a message
@@ -52,12 +54,13 @@ const Main7 = () => {
         <Grid item style={{ paddingTop: 50 }}>
           <Button
             sx={{
-              width: 202.45,
-              height: 58,
-              borderRadius: 90,
+              width: '100%',
+              maxWidth: '202.45px',
+              height: '58px',
+              borderRadius: '90px',
               backgroundColor: '#F8B232',
               color: '#000',
-              textTransform: 'none'
+              textTransform: 'none',
             }}
             variant='contained'
             endIcon={<ArrowRightIcon />}
@@ -67,8 +70,8 @@ const Main7 = () => {
                 fontFamily:
                   'Manrope, -apple-system, Roboto, Helvetica, sans-serif',
                 fontWeight: '600',
-                fontSize: '18px',
-                lineHeight: '18px'
+                fontSize: 'clamp(0.8rem, 1.5vw, 1rem)',
+                lineHeight: '1',
               }}
             >
               Get In Touch
@@ -77,7 +80,7 @@ const Main7 = () => {
         </Grid>
       </Grid>
     </Grid>
-  )
-}
+  );
+};
 
-export default Main7
+export default Main7;
