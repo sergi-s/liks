@@ -1,15 +1,7 @@
-import React from 'react'
-import { Box, Typography, Container, Grid } from '@mui/material'
+import React from 'react';
+import { Box, Typography, Container, Grid } from '@mui/material';
 
-// import SVG from '../src/assets/svg/SVG.svg'
-// const content={
-//   shadowColor: "10px 10px 0px -2px rgba(90, 165, 255, 0.53)",
-//   svg: SVG ,
-//   header: 'Processing Units',
-//   text: "Liks Ltd. boasts an advanced processing facility that is at the forefront of manufacturing various approved sophisticated additives and materials through exclusive manufacturing processes. Our adaptable manufacturing infrastructure allows us to diversify our product range and adjust our product mix according to shifts in customer demand, catering to a spectrum of customer requirements, from laboratory-scale research to commercial production. We uphold rigorous adherence and compliance with our customers' packaging policies.Facility – Located in the Netherlands, 50 kilometers east of Amsterdam, the facility specializes in powder products and custom powder blends. It stands as one of the company's longest-serving plants, equipped with highly skilled personnel."
-// }
-
-function ProcessingUnitsComponent ({content}) {
+function ProcessingUnitsComponent({ content }) {
   return (
     <Container
       sx={{
@@ -19,8 +11,8 @@ function ProcessingUnitsComponent ({content}) {
         backgroundColor: '#f1f4f6',
         display: 'flex',
         flexDirection: 'column',
-        padding: '50px 50px 0 50px',
-        height: "547.56px"
+        padding: '50px 20px 50px 20px',
+        height: 'auto',
       }}
     >
       <Grid container>
@@ -28,8 +20,10 @@ function ProcessingUnitsComponent ({content}) {
           <Box
             sx={{
               display: 'flex',
-              width: '336px',
-              gap: '20px'
+              flexDirection: 'inherit',
+              alignItems: 'self-start',
+              padding: '10px',
+              gap: '1rem'
             }}
           >
             <img
@@ -39,7 +33,7 @@ function ProcessingUnitsComponent ({content}) {
                 objectFit: 'contain',
                 objectPosition: 'center',
                 width: '82px',
-                overflow: 'hidden'
+                overflow: 'hidden',
               }}
               alt='Processing Units'
             />
@@ -48,10 +42,9 @@ function ProcessingUnitsComponent ({content}) {
                 justifyContent: 'center',
                 color: `${content.header.color}`,
                 letterSpacing: '-0.5px',
-                alignSelf: 'center',
-                whiteSpace: 'nowrap',
-                margin: 'auto 0',
-                font: '800 30px/32px Manrope, -apple-system, Roboto, Helvetica, sans-serif'
+                textAlign: 'center',
+                marginTop: '10px',
+                font: '800 24px/32px Manrope, -apple-system, Roboto, Helvetica, sans-serif',
               }}
               variant='h2'
             >
@@ -62,9 +55,7 @@ function ProcessingUnitsComponent ({content}) {
         <Grid item xs={12} sx={{ marginTop: '20px' }}>
           <Typography
             sx={{
-              //justifyContent: 'center',
-              //alignSelf: 'stretch',
-              font: '500 16px/24px Manrope, -apple-system, Roboto, Helvetica, sans-serif'
+              font: '500 16px/24px Manrope, -apple-system, Roboto, Helvetica, sans-serif',
             }}
             variant='body1'
           >
@@ -73,7 +64,7 @@ function ProcessingUnitsComponent ({content}) {
         </Grid>
       </Grid>
     </Container>
-  )
+  );
 }
 
-export default ProcessingUnitsComponent
+export default ProcessingUnitsComponent;
