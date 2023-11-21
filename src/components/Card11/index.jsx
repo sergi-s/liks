@@ -1,14 +1,7 @@
-import React from 'react'
-import { Grid, Typography } from '@mui/material'
+import React from 'react';
+import { Grid, Typography } from '@mui/material';
 
-// import SVG from '../src/assets/svg/email_black.svg'
-// const content = {
-//   svg: SVG,
-//   header: 'Email',
-//   text: 'info@liks.com'
-// }
-
-function Card11 ({ content }) {
+function Card11({ content }) {
   return (
     <Grid
       container
@@ -17,8 +10,9 @@ function Card11 ({ content }) {
         borderRadius: '20px',
         backgroundColor: '#eceff3',
         padding: '40px 40px 64px 40px',
-        width: '524.27px',
-        height: '273px'
+        maxWidth: '524.27px',
+        width: '100%',
+        margin: '0 auto',
       }}
     >
       <Grid item md={12} sx={{ height: '92px' }}>
@@ -33,11 +27,11 @@ function Card11 ({ content }) {
             height: '85px',
             padding: '15px',
             borderRadius: '30px',
-            backgroundColor: 'white'
+            backgroundColor: 'white',
           }}
         />
       </Grid>
-      <Grid item container md={12} sx={{marginTop:"32px"}}>
+      <Grid item container md={12} sx={{ marginTop: '32px' }}>
         <Grid item md={12}>
           <Typography
             sx={{
@@ -48,8 +42,8 @@ function Card11 ({ content }) {
               fontFamily:
                 'Manrope, -apple-system, Roboto, Helvetica, sans-serif',
               fontWeight: 800,
-              fontSize: '22px',
-              lineHeight: '22px'
+              fontSize: { xs: '18px', md: '22px' },
+              lineHeight: '22px',
             }}
           >
             {content.header}
@@ -63,8 +57,8 @@ function Card11 ({ content }) {
               fontFamily:
                 'Manrope, -apple-system, Roboto, Helvetica, sans-serif',
               fontWeight: 600,
-              fontSize: '18px',
-              lineHeight: '22px'
+              fontSize: { xs: '14px', md: '18px' },
+              lineHeight: '22px',
             }}
           >
             {content.text}
@@ -72,6 +66,7 @@ function Card11 ({ content }) {
         </Grid>
       </Grid>
     </Grid>
-  )
+  );
 }
-export default Card11
+
+export default Card11;
