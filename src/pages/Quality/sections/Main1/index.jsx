@@ -64,7 +64,7 @@ function Main2() {
 export default Main2
 
 
-const QAGoal = ({ image, title, text, isRight = false }) => {
+export const QAGoal = ({ image, title, text, isRight = false }) => {
   const c = [
     <Grid item xs={12} md={3}>
       <img
