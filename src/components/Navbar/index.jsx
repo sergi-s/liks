@@ -1,9 +1,26 @@
 import React, { useState } from 'react';
-import { Grid, IconButton, Drawer, List, ListItem } from '@mui/material';
+import { Grid, IconButton, Drawer, List, ListItem, MenuItem, Menu } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import { LinkContainer } from 'react-router-bootstrap';
 import { Link } from 'react-router-dom';
 import Logo from '../../assets/Logo.svg';
+import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
+
+const menuItems = [
+  { to: '/about', label: 'About' },
+  {
+    label: 'Products', subMenu: [
+      { to: '/drillingAdditives', label: 'Drilling Additives' },
+      { to: '/industrialChemicals', label: 'Industrial Chemicals' },
+      { to: '/agroChemicals', label: 'Agro Chemicals' },
+    ]
+  },
+  { to: '/logistics', label: 'Logistics' },
+  { to: '/quality', label: 'Quality' },
+  { to: '/facilities', label: 'Facilities' },
+  { to: '/QHSE', label: 'QHSE' },
+  { to: '/contact', label: 'Contact' },
+];
 
 function Navbar() {
   const [isDrawerOpen, setDrawerOpen] = useState(false);
@@ -11,10 +28,18 @@ function Navbar() {
   const toggleDrawer = () => {
     setDrawerOpen(!isDrawerOpen);
   };
+  const [anchorEl, setAnchorEl] = useState(null);
+
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
 
   return (
     <Grid container justifyContent="center" alignItems="center">
-      {/* Navbar for larger screens */}
       <Grid
         item
         sx={{
@@ -65,144 +90,71 @@ function Navbar() {
           </Grid>
         </LinkContainer>
         <Grid
+          container
+          columnSpacing={3}
           item
           sx={{
+            paddingRight: '2rem',
             alignSelf: 'center',
             alignItems: 'flex-start',
             maxWidth: '100%',
-            flexWrap: 'wrap',
+            flexWrap: 'nowrap',
           }}
         >
-          {/*  */}
-          <Link
-            to='/about'
-            style={{
-              justifyContent: 'center',
-              color: '#000',
-              alignSelf: 'start',
-              fontFamily:
-                'Manrope, -apple-system, Roboto, Helvetica, sans-serif',
-              fontWeight: 600,
-              fontSize: '13px',
-              lineHeight: '20px',
-              paddingRight: '30px',
-              textDecoration: 'none'
-            }}
-          >
-            About
-          </Link>
-          <Link
-            to='/products'
-            className='link'
-            style={{
-              justifyContent: 'center',
-              color: '#000',
-              alignSelf: 'start',
-              fontFamily:
-                'Manrope, -apple-system, Roboto, Helvetica, sans-serif',
-              fontWeight: 600,
-              fontSize: '13px',
-              lineHeight: '20px',
-              paddingRight: '30px',
-              textDecoration: 'none'
-            }}
-          >
-            Products
-          </Link>
-          <Link
-            to='/logistics'
-            className='link'
-            style={{
-              justifyContent: 'center',
-              color: '#000',
-              alignSelf: 'start',
-              fontFamily:
-                'Manrope, -apple-system, Roboto, Helvetica, sans-serif',
-              fontWeight: 600,
-              fontSize: '13px',
-              lineHeight: '20px',
-              paddingRight: '30px',
-              textDecoration: 'none'
-            }}
-          >
-            Logistics
-          </Link>
-          <Link
-            to='/quality'
-            className='link'
-            style={{
-              justifyContent: 'center',
-              color: '#000',
-              alignSelf: 'start',
-              fontFamily:
-                'Manrope, -apple-system, Roboto, Helvetica, sans-serif',
-              fontWeight: 600,
-              fontSize: '13px',
-              lineHeight: '20px',
-              paddingRight: '30px',
-              textDecoration: 'none'
-            }}
-          >
-            Quality
-          </Link>
-          <Link
-            to='/facilities'
-            className='link'
-            style={{
-              justifyContent: 'center',
-              color: '#000',
-              alignSelf: 'start',
-              fontFamily:
-                'Manrope, -apple-system, Roboto, Helvetica, sans-serif',
-              fontWeight: 600,
-              fontSize: '13px',
-              lineHeight: '20px',
-              paddingRight: '30px',
-              textDecoration: 'none'
-            }}
-          >
-            Facilities
-          </Link>
-          <Link
-            to='/QHSE'
-            className='link'
-            style={{
-              justifyContent: 'center',
-              color: '#000',
-              alignSelf: 'start',
-              fontFamily:
-                'Manrope, -apple-system, Roboto, Helvetica, sans-serif',
-              fontWeight: 600,
-              fontSize: '13px',
-              lineHeight: '20px',
-              paddingRight: '30px',
-              textDecoration: 'none'
-            }}
-          >
-            QHSE
-          </Link>
-          <Link
-            to='/contact'
-            className='link'
-            style={{
-              justifyContent: 'center',
-              color: '#000',
-              alignSelf: 'start',
-              fontFamily:
-                'Manrope, -apple-system, Roboto, Helvetica, sans-serif',
-              fontWeight: 600,
-              fontSize: '13px',
-              lineHeight: '20px',
-              paddingRight: '30px',
-              textDecoration: 'none'
-            }}
-          >
-            Contact
-          </Link>
+          {menuItems.map((menuItem, index) => (
+            <Grid item key={index}>
+              {menuItem.subMenu ? (
+                <div>
+                  <Link
+                    aria-controls="dropdown-menu"
+                    aria-haspopup="true"
+                    onClick={handleClick}
+                  >
+                    <IconButton
+                      size="small"
+                      style={{
+                        color: '#000',
+                        alignSelf: 'start',
+                        fontFamily:
+                          'Manrope, -apple-system, Roboto, Helvetica, sans-serif',
+                        fontWeight: 600,
+                        fontSize: '13px',
+                        lineHeight: '20px',
+                        textDecoration: 'none',
+                      }}
+                      onClick={handleClick}
+                    >
+                      {menuItem.label}
+                      <ArrowDropDownIcon fontSize="small" />
+                    </IconButton>
+                  </Link>
+                  <ProductsDropDown anchorEl={anchorEl} handleClose={handleClose} />
+                </div>
+              ) : (
+                <Link
+                  to={menuItem.to}
+                  className={menuItem.subMenu ? 'link' : ''}
+                  style={{
+                    justifyContent: 'center',
+                    color: '#000',
+                    alignSelf: 'start',
+                    fontFamily:
+                      'Manrope, -apple-system, Roboto, Helvetica, sans-serif',
+                    fontWeight: 600,
+                    fontSize: '13px',
+                    lineHeight: '20px',
+                    textDecoration: 'none',
+                  }}
+                >
+                  {menuItem.label}
+                </Link>
+              )}
+            </Grid>
+          ))}
         </Grid>
+
       </Grid>
 
-      {/* Burger button for smaller screens */}
       <IconButton
         onClick={toggleDrawer}
         sx={{
@@ -218,7 +170,6 @@ function Navbar() {
         <MenuIcon fontSize="large" />
       </IconButton>
 
-      {/* Drawer for smaller screens */}
       <Drawer anchor="right" open={isDrawerOpen} onClose={toggleDrawer} sx={{ width: 300 }}>
         <List>
           <ListItem>
@@ -251,7 +202,7 @@ function Navbar() {
                     fontStyle: 'normal',
                     fontWeight: 800,
                     lineHeight: '30px',
-                    marginLeft: '10px', // Adjusting margin for better spacing
+                    marginLeft: '10px',
                   }}
                 >
                   Liks
@@ -272,41 +223,68 @@ function Navbar() {
 
 
 const DrawerItems = () => {
-  const menuItems = [
-    { to: '/about', label: 'About' },
-    { to: '/products', label: 'Products' },
-    { to: '/logistics', label: 'Logistics' },
-    { to: '/quality', label: 'Quality' },
-    { to: '/facilities', label: 'Facilities' },
-    { to: '/QHSE', label: 'QHSE' },
-    { to: '/contact', label: 'Contact' },
-  ];
-  return (
-    <List>
-      {menuItems.map((item, index) => (
-        <ListItem key={index}>
-          <Link
-            to={item.to}
-            className='link'
-            style={{
-              justifyContent: 'center',
-              color: '#000',
-              fontFamily: 'Manrope, -apple-system, Roboto, Helvetica, sans-serif',
-              fontWeight: 600,
-              fontSize: '16px',
-              lineHeight: '30px',
-              padding: '15px 30px',
-              textDecoration: 'none',
-              transition: 'background 0.3s, font-size 0.3s',
-              borderBottom: '1px solid #ccc',
-            }}
-          >
-            {item.label}
-          </Link>
-        </ListItem>
-      ))}
-    </List>
+  const renderMenuItem = (item, index, isSubItem = false) => (
+    <ListItem key={index}>
+      <Link
+        to={item.to}
+        className='link'
+        style={{
+          justifyContent: 'center',
+          color: '#000',
+          fontFamily: 'Manrope, -apple-system, Roboto, Helvetica, sans-serif',
+          fontWeight: 600,
+          fontSize: '16px',
+          lineHeight: '30px',
+          padding: '15px 30px',
+          textDecoration: 'none',
+          transition: 'background 0.3s, font-size 0.3s',
+          borderBottom: '1px solid #ccc',
+          marginLeft: isSubItem ? '25px' : '0',
+        }}
+      >
+        {item.label}
+      </Link>
+    </ListItem>
   );
+
+  return <List>
+    {menuItems.flatMap((item, index) => (item.subMenu
+      ? item.subMenu.map((subItem, subIndex) => renderMenuItem(subItem, subIndex, true))
+      : renderMenuItem(item, index)))}
+  </List>;
 };
+
+
+const ProductsDropDown = ({ anchorEl, handleClose }) => {
+  const products = [
+    { to: '/drillingAdditives', label: 'Drilling Additives' },
+    { to: '/industrialChemicals', label: 'Industrial Chemicals' },
+    { to: '/agroChemicals', label: 'Agro Chemicals' },
+  ]
+  return <><Menu
+    id="dropdown-menu"
+    anchorEl={anchorEl}
+    keepMounted
+    open={Boolean(anchorEl)}
+    onClose={handleClose}
+  >
+    {products.map(({ to, label }) => (
+      <MenuItem onClick={handleClose} sx={{
+        justifyContent: 'center',
+        color: '#000',
+        alignSelf: 'start',
+        fontFamily:
+          'Manrope, -apple-system, Roboto, Helvetica, sans-serif',
+        fontWeight: 600,
+        fontSize: '13px',
+        lineHeight: '20px',
+        textDecoration: 'none'
+      }}>
+        <Link to={to}>
+          {label}</Link>
+      </MenuItem>
+    ))}
+  </Menu></>
+}
 
 export default Navbar;
