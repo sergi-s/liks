@@ -12,7 +12,7 @@ function Footer({ content }) {
       container
       justifyContent='center'
       alignItems='center'
-      style={{ margin: '100px 0 143px 0' }}
+      style={{ margin: '100px 0 43px 0' }}
     >
       <Grid
         container
