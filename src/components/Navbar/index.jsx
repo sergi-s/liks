@@ -5,8 +5,10 @@ import { LinkContainer } from 'react-router-bootstrap';
 import { Link } from 'react-router-dom';
 import Logo from '../../assets/Logo.svg';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
+import ArrowDropUpIcon from '@mui/icons-material/ArrowDropUp';
+import DrawerItems from './Drawer';
 
-const menuItems = [
+export const menuItems = [
   { to: '/about', label: 'About' },
   {
     label: 'Products', subMenu: [
@@ -125,10 +127,10 @@ function Navbar() {
                       onClick={handleClick}
                     >
                       {menuItem.label}
-                      <ArrowDropDownIcon fontSize="small" />
+                      {anchorEl ? <ArrowDropUpIcon fontSize="small" /> : <ArrowDropDownIcon fontSize="small" />}
                     </IconButton>
                   </Link>
-                  <ProductsDropDown anchorEl={anchorEl} handleClose={handleClose} />
+                  <ProductsDropDown anchorEl={anchorEl} handleClose={handleClose} products={menuItem.subMenu} />
                 </div>
               ) : (
                 <Link
@@ -170,7 +172,7 @@ function Navbar() {
         <MenuIcon fontSize="large" />
       </IconButton>
 
-      <Drawer anchor="right" open={isDrawerOpen} onClose={toggleDrawer} sx={{ width: 300 }}>
+      <Drawer anchor="right" open={isDrawerOpen} onClose={toggleDrawer}>
         <List>
           <ListItem>
             <LinkContainer to={'/'}>
@@ -184,6 +186,7 @@ function Navbar() {
                   cursor: 'pointer',
                   borderBottom: '2px solid #F8B232',
                   paddingBottom: '10px',
+                  width: '225px'
                 }}
               >
                 <img
@@ -222,69 +225,39 @@ function Navbar() {
 
 
 
-const DrawerItems = () => {
-  const renderMenuItem = (item, index, isSubItem = false) => (
-    <ListItem key={index}>
-      <Link
-        to={item.to}
-        className='link'
-        style={{
-          justifyContent: 'center',
+
+export const ProductsDropDown = ({ anchorEl, handleClose, products }) => {
+  return <>
+    <Menu
+      id="dropdown-menu"
+      anchorEl={anchorEl}
+      keepMounted
+      open={Boolean(anchorEl)}
+      onClose={handleClose}
+      PaperProps={{ sx: { borderRadius: '20px' } }}
+    >
+      {products.map(({ to, label }) => (
+        <MenuItem onClick={handleClose} sx={{
+          justifyContent: 'start',
           color: '#000',
-          fontFamily: 'Manrope, -apple-system, Roboto, Helvetica, sans-serif',
+          alignSelf: 'start',
+          fontFamily:
+            'Manrope, -apple-system, Roboto, Helvetica, sans-serif',
           fontWeight: 600,
-          fontSize: '16px',
-          lineHeight: '30px',
-          padding: '15px 30px',
+          fontSize: '13px',
+          lineHeight: '20px',
           textDecoration: 'none',
-          transition: 'background 0.3s, font-size 0.3s',
-          borderBottom: '1px solid #ccc',
-          marginLeft: isSubItem ? '25px' : '0',
-        }}
-      >
-        {item.label}
-      </Link>
-    </ListItem>
-  );
-
-  return <List>
-    {menuItems.flatMap((item, index) => (item.subMenu
-      ? item.subMenu.map((subItem, subIndex) => renderMenuItem(subItem, subIndex, true))
-      : renderMenuItem(item, index)))}
-  </List>;
-};
-
-
-const ProductsDropDown = ({ anchorEl, handleClose }) => {
-  const products = [
-    { to: '/drillingAdditives', label: 'Drilling Additives' },
-    { to: '/industrialChemicals', label: 'Industrial Chemicals' },
-    { to: '/agroChemicals', label: 'Agro Chemicals' },
-  ]
-  return <><Menu
-    id="dropdown-menu"
-    anchorEl={anchorEl}
-    keepMounted
-    open={Boolean(anchorEl)}
-    onClose={handleClose}
-  >
-    {products.map(({ to, label }) => (
-      <MenuItem onClick={handleClose} sx={{
-        justifyContent: 'center',
-        color: '#000',
-        alignSelf: 'start',
-        fontFamily:
-          'Manrope, -apple-system, Roboto, Helvetica, sans-serif',
-        fontWeight: 600,
-        fontSize: '13px',
-        lineHeight: '20px',
-        textDecoration: 'none'
-      }}>
-        <Link to={to}>
-          {label}</Link>
-      </MenuItem>
-    ))}
-  </Menu></>
+          '& a': {
+            textDecoration: 'none',
+            color: 'inherit',
+            '&:visited': { color: 'inherit' },
+          },
+        }}>
+          <Link to={to}> {label}</Link>
+        </MenuItem>
+      ))}
+    </Menu>
+  </>
 }
 
 export default Navbar;
