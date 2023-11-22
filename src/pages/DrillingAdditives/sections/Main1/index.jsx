@@ -1,6 +1,5 @@
 import React from 'react'
-import { Box, Grid, Typography } from '@mui/material'
-import Card5 from '../../../../components/Card5'
+import { Grid, Typography } from '@mui/material'
 
 import image1 from '../../../../assets/DrillingAdditivies/images/product1.png'
 import image2 from '../../../../assets/DrillingAdditivies/images/product2.png'
@@ -9,6 +8,7 @@ import image4 from '../../../../assets/DrillingAdditivies/images/product4.png'
 import image5 from '../../../../assets/DrillingAdditivies/images/product5.png'
 import image6 from '../../../../assets/DrillingAdditivies/images/product6.png'
 import image7 from '../../../../assets/DrillingAdditivies/images/product7.png'
+import Card13 from '../../../../components/Card12'
 
 const cardItems = [
   {
@@ -61,76 +61,9 @@ const Main2 = () => {
     <Grid container
       sx={{ padding: '20px', flexDirection: 'column', alignItems: 'center', width: '100%' }}
     >
-      {cardItems.map((content, index) => {
-        const boxShadow = `10px 10px 0px -2px ${(index % 2) ? 'rgba(90, 165, 255, 0.53)' : 'rgba(255, 179, 34, 0.52)'}`
-
-        return (
-          <Grid
-            container
-            item
-            key={content.id}
-            sx={{
-              display: 'flex',
-              width: '100%',
-              padding: '3.125rem 1.25rem',
-              justifyContent: 'center',
-              alignItems: 'flex-start',
-              borderRadius: '1.25rem',
-              background: `#F1F4F6`,
-              boxShadow,
-              marginBottom: '25px',
-            }}
-          >
-            <Grid item xs={12} md={3} >
-              <img
-                loading='lazy'
-                src={content.image}
-                alt='logo'
-                style={{
-                  width: '100%',
-                  maxWidth: '100%',
-                  height: 'auto',
-                  objectFit: 'cover',
-                  borderRadius: '0.9375rem',
-                }}
-              />
-            </Grid>
-
-            <Grid item xs={12} md={9} container spacing={2} sx={{ padding: "0px 30px" }}>
-              <Grid item xs={12}>
-                <Typography
-                  sx={{
-                    justifyContent: 'center',
-                    textAlign: ['center', 'left'],
-                    font: '800 28px Manrope, -apple-system, Roboto, Helvetica, sans-serif',
-                    overflowWrap: 'break-word',
-                  }}
-                >
-                  {content.title}
-                </Typography>
-              </Grid>
-              <Grid item xs={12}>
-                <Typography
-                  sx={{
-                    justifyContent: 'center',
-                    color: '#10417a',
-                    alignSelf: 'stretch',
-                    maxWidth: '100%',
-                    margin: '20px 0 30px',
-                    font: '500 14px/24px Manrope, -apple-system, Roboto, Helvetica, sans-serif',
-                  }}
-                >
-                  {content.text}
-                </Typography>
-              </Grid>
-            </Grid>
-          </Grid>
-        );
-      })}
+      {cardItems.map((content, index) => Card13(content, index))}
     </Grid>
   );
 }
-
-
 
 export default Main2
