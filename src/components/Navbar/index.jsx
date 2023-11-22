@@ -106,37 +106,34 @@ function Navbar() {
           {menuItems.map((menuItem, index) => (
             <Grid item key={index}>
               {menuItem.subMenu ? (
-                <div>
+                <>
                   <Link
                     aria-controls="dropdown-menu"
                     aria-haspopup="true"
                     onClick={handleClick}
+                    style={{
+                      display: 'flex',
+                      justifyContent: 'center',
+                      alignItems: 'center',
+                      color: '#000',
+                      fontFamily:
+                        'Manrope, -apple-system, Roboto, Helvetica, sans-serif',
+                      fontWeight: 600,
+                      fontSize: '13px',
+                      lineHeight: '20px',
+                      textDecoration: 'none',
+                    }}
                   >
-                    <IconButton
-                      size="small"
-                      style={{
-                        color: '#000',
-                        alignSelf: 'start',
-                        fontFamily:
-                          'Manrope, -apple-system, Roboto, Helvetica, sans-serif',
-                        fontWeight: 600,
-                        fontSize: '13px',
-                        lineHeight: '20px',
-                        textDecoration: 'none',
-                      }}
-                      onClick={handleClick}
-                    >
-                      {menuItem.label}
-                      {anchorEl ? <ArrowDropUpIcon fontSize="small" /> : <ArrowDropDownIcon fontSize="small" />}
-                    </IconButton>
+                    {menuItem.label}
+                    {anchorEl ? <ArrowDropUpIcon fontSize="small" /> : <ArrowDropDownIcon fontSize="small" />}
                   </Link>
                   <ProductsDropDown anchorEl={anchorEl} handleClose={handleClose} products={menuItem.subMenu} />
-                </div>
+                </>
               ) : (
                 <Link
                   to={menuItem.to}
-                  className={menuItem.subMenu ? 'link' : ''}
                   style={{
+                    display: 'flex',
                     justifyContent: 'center',
                     color: '#000',
                     alignSelf: 'start',
@@ -216,9 +213,6 @@ function Navbar() {
           <DrawerItems />
         </List>
       </Drawer>
-
-
-
     </Grid>
   );
 }
