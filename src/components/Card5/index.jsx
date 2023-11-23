@@ -5,13 +5,15 @@ export default function Card5({ content }) {
   return (
     <Box
       sx={{
-        alignItems: 'start',
+        alignItems: 'center',
         borderRadius: '20px',
         background: `${content.backColor}`,
         boxShadow: `${content.shadow}`,
         display: 'flex',
         flexDirection: 'column',
-        padding: ['20px', '30px', '50px'],
+        // padding: ['20px', '30px', '50px'],
+        padding: '2rem',
+        // width: '100%',
         height: 'auto',
         maxWidth: '800px',
         margin: '0 auto',
@@ -41,7 +43,8 @@ export default function Card5({ content }) {
             textAlign: ['center', 'left'],
             font: '800 40px Manrope, -apple-system, Roboto, Helvetica, sans-serif',
             flex: 1,
-            overflowWrap: 'break-word'
+            overflowWrap: 'break-word',
+            wordBreak: 'break-all',
           }}
         >
           {content.header.mark}

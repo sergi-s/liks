@@ -66,7 +66,7 @@ export default Main2
 
 export const QAGoal = ({ image, title, text, isRight = false }) => {
   const c = [
-    <Grid item xs={12} md={3}>
+    <Grid item xs={12} md={4}>
       <img
         src={image}
         alt=""
@@ -74,7 +74,7 @@ export const QAGoal = ({ image, title, text, isRight = false }) => {
       />
     </Grid>,
 
-    <Grid item xs={12} md={9}>
+    <Grid item xs={12} md={8}>
       <Paper
         style={{
           borderRadius: '20px',
@@ -90,7 +90,7 @@ export const QAGoal = ({ image, title, text, isRight = false }) => {
     </Grid>]
   if (isRight) c.reverse()
   return (
-    <Grid container spacing={2} sx={{ alignItems: 'inherit' }}>
+    <Grid container spacing={2} sx={{ alignItems: 'inherit',paddingY:'8px' }}>
       {c.map((e) => e)}
     </Grid>
   );

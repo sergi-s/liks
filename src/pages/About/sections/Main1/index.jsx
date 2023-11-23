@@ -41,12 +41,13 @@ const Main2 = props => {
     <Grid
       container
       sx={{
-        padding: '106.8px 153.59px 106.8px 153.59px'
+        // padding: '106.8px 153.59px 106.8px 153.59px'
+        padding: '15% 17%',
       }}
       spacing={10}
     >
       {cardItems.map(cardItem => (
-        <Grid item md={6}>
+        <Grid item lg={6} md={12} sm={12}>
           <Card5 content={cardItem} />
         </Grid>
       ))}

@@ -10,9 +10,11 @@ function Main2() {
     <Grid
       container
       direction='row'
-      justifyContent='flex-start'
+      justifyContent='center'
       alignItems='center'
-      sx={{ padding: '96px 153px 96px 153px', gap: '20px' }}
+      sx={{
+        padding: { xs: '5% 15%', md: '5% 7%' },
+      }}
     >
       <QAGoal image={Main2Image}
         title={'We are serious about Safety!'}

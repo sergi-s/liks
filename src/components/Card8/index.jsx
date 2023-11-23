@@ -1,9 +1,9 @@
 import React from 'react';
-import { Box, Typography } from '@mui/material';
+import { Box, Grid, Typography } from '@mui/material';
 
 function Card8({ content }) {
   return (
-    <Box
+    <Grid
       style={{
         height: "auto",
         justifyContent: 'center',
@@ -14,9 +14,7 @@ function Card8({ content }) {
         display: 'flex',
         flexDirection: 'column',
         padding: '20px',
-        '@media (min-width: 600px)': {
-          flexDirection: 'row',
-        },
+        '@media (min-width: 600px)': { flexDirection: 'row' }
       }}
     >
       <img
@@ -26,6 +24,7 @@ function Card8({ content }) {
           width: '95px',
           height: '95px',
           marginRight: '10px',
+          paddingBottom: '15px'
         }}
         alt='Warehousing Facilities'
       />
@@ -58,7 +57,7 @@ function Card8({ content }) {
           {content.text}
         </Typography>
       </Box>
-    </Box>
+    </Grid>
   );
 }
 

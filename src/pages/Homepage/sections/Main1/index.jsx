@@ -1,10 +1,11 @@
 import React from 'react';
-import { Typography, Button, Grid } from '@mui/material';
+import { Typography, Button, Grid, useMediaQuery } from '@mui/material';
 import ArrowRightIcon from '@mui/icons-material/ArrowRight';
 
 import './Main1.css';
 
 const Main1 = () => {
+  const isSmallScreen = useMediaQuery('(max-width:600px)');
   return (
     <Grid
       className='main1'
@@ -15,11 +16,11 @@ const Main1 = () => {
       justifyContent='center'
       style={{ minHeight: '100vh', textAlign: 'center' }}
     >
-      <Grid item>
-        <Typography variant='h1' color={'white'}>
+      <Grid item style={{ maxWidth: '100%' }}>
+        <Typography variant='h1' color={'white'} style={{ fontSize: isSmallScreen ? '2rem' : '5rem', textAlign: 'center' }}>
           Welcome to Liks
         </Typography>
-        <Typography variant='h6' color={'white'}>
+        <Typography variant='h6' color={'white'} style={{ fontSize: isSmallScreen ? '0.8rem' : '1rem', textAlign: 'center' }}>
           Liks is a prominent Dutch exporter of Specialty Chemicals, serving the
           international markets of Oil & Gas, Mining, <br />
           Refractories, Industrial Chemicals, and Agro-Chemicals
@@ -28,7 +29,6 @@ const Main1 = () => {
       <Grid item style={{ paddingTop: 50 }}>
         <Button
           sx={{
-            // width: 'auto',
             height: 58,
             borderRadius: 90,
             backgroundColor: '#F8B232',
