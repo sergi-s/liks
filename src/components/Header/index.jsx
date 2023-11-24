@@ -43,7 +43,9 @@ function Header({ image, text1, text2 }) {
             textAlign: 'center',
             fontWeight: 800,
             fontSize: '60px',
-            fontFamily: 'Manrope, -apple-system, Roboto, Helvetica, sans-serif'
+            fontFamily: 'Manrope, -apple-system, Roboto, Helvetica, sans-serif',
+            overflowWrap: 'break-word',
+            wordBreak: 'break-all',
           }}
         >
           {text2}
