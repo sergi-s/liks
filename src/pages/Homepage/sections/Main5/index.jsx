@@ -1,5 +1,5 @@
 import React from 'react'
-import { Grid, Typography, Button } from '@mui/material'
+import { Grid, Typography, Button, Hidden } from '@mui/material'
 import ArrowRightIcon from '@mui/icons-material/ArrowRight'
 import Image1 from '../../../../assets/Homepage/images/image1.png'
 import Image2 from '../../../../assets/Homepage/images/image2.png'
@@ -10,12 +10,14 @@ const Main5 = () => {
       container
       sx={{
         display: 'flex',
-        height: "900px",
-        padding: '96px 192px 96px 192px',
-        alignItems: 'flex-start'
+        padding: '48px',
+        alignItems: 'flex-start',
       }}
     >
       <Grid item container md={6}>
+        <Hidden mdUp>
+          <ImagesSmallScreen />
+        </Hidden>
         <Grid item container md={12}>
           <Typography
             sx={{
@@ -81,36 +83,80 @@ const Main5 = () => {
           </Button>
         </Grid>
       </Grid>
-      <Grid item container md={6} >
-        <img
-          loading='lazy'
-          src={Image2}
-          alt='Powder'
-          style={{
-            objectPosition: 'center',
-            width: '416px',
-            height: '582px',
-            overflow: 'hidden',
-            borderRadius: '44px',
-            position: 'absolute',
-            margin: '126px 192px 0 366px'
-          }}
-        />
-        <img
-          loading='lazy'
-          src={Image1}
-          alt='Powder'
-          style={{
-            width: '416px',
-            height: '582px',
-            overflow: 'hidden',
-            borderRadius: '44px',
-            position: 'absolute'
-          }}
-        />
+      <Grid item container md={6}>
+        <Hidden mdDown>
+          <ImagesLargeScreen />
+        </Hidden>
       </Grid>
-    </Grid>
+
+    </Grid >
   )
 }
 
 export default Main5
+
+
+
+const ImagesSmallScreen = () => (
+  <Grid sx={{ justifyContent: 'center', alignItems: 'center', display: 'flex', width: '100%', height: '100%', paddingBottom: '50px' }}>
+    <img
+      className='sad'
+      loading='lazy'
+      src={Image2}
+      alt='Powder'
+      style={{
+        objectPosition: 'center',
+        width: '185.01px',
+        height: '278.85px',
+        overflow: 'hidden',
+        borderRadius: '44px',
+        position: 'absolute',
+        margin: '126px 0 0 150px'
+      }}
+    />
+    <img
+      loading='lazy'
+      src={Image1}
+      alt='Powder'
+      style={{
+        width: '187.23px',
+        height: '278.85px',
+        overflow: 'hidden',
+        borderRadius: '44px',
+        position: 'relative'
+      }}
+    />
+  </Grid>
+)
+
+const ImagesLargeScreen = () => (
+  <>
+    <img
+      className='sad'
+      loading='lazy'
+      src={Image2}
+      alt='Powder'
+      style={{
+        objectPosition: 'center',
+        width: '416px',
+        height: '582px',
+        overflow: 'hidden',
+        borderRadius: '44px',
+        position: 'absolute',
+        margin: '126px 192px 0 366px'
+      }}
+    />
+    <img
+      loading='lazy'
+      src={Image1}
+      alt='Powder'
+      style={{
+        width: '416px',
+        height: '582px',
+        overflow: 'hidden',
+        borderRadius: '44px',
+        position: 'relative'
+      }}
+    />
+  </>
+)
